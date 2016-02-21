@@ -89,7 +89,11 @@ var serviceManager ={
 			"data": JSON.stringify(data),
 			"dataType": "json",
 			"success": function(result) {
-				callBack(result);
+				if(result){
+					callBack(result);
+				}else{
+					alert("添加失败！");
+				}
 			},
 			complete:function(responce){
 				var resText = responce.responseText;

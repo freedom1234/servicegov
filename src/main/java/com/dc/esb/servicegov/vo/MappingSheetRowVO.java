@@ -22,18 +22,18 @@ public class MappingSheetRowVO {
     public MappingSheetRowVO() {
     }
 
-    public MappingSheetRowVO(MappingSheetIndexVO sheetIndex,Sheet sheet, int rowNum, List<Ida> idaParents ,List<SDA> sdaParents) {
+    public MappingSheetRowVO(MappingSheetIndexVO sheetIndex, Sheet sheet, int rowNum, List<Ida> idaParents, List<SDA> sdaParents) {
         this.rowNum = rowNum;
         Row row = sheet.getRow(rowNum);
-        if(null != row){
-            String idaEnName =  ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.idaEnNameCol));
-            String sdaEnName =  ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.sdaEnNameCol));
-            if(StringUtils.isNotEmpty(idaEnName) || StringUtils.isNotEmpty(sdaEnName)){//如果ida和sda的英文名称都是空则不处理
-                String sdaChName =  ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.sdaChNameCol));
-                String sdaTypeAndLength =  ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.sdaTypeAndLengthCol));
-                String sdaConstraint =  ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.sdaConstrantCol));
-                String sdaRequired =  ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.sdaRequiredCol));
-                String sdaRemark =  ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.sdaRemarkCol));
+        if (null != row) {
+            String idaEnName = ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.idaEnNameCol));
+            String sdaEnName = ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.sdaEnNameCol));
+            if (StringUtils.isNotEmpty(idaEnName) || StringUtils.isNotEmpty(sdaEnName)) {//如果ida和sda的英文名称都是空则不处理
+                String sdaChName = ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.sdaChNameCol));
+                String sdaTypeAndLength = ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.sdaTypeAndLengthCol));
+                String sdaConstraint = ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.sdaConstrantCol));
+                String sdaRequired = ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.sdaRequiredCol));
+                String sdaRemark = ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.sdaRemarkCol));
                 sda = new SDA();
                 sda.setId(UUID.randomUUID().toString());
                 sda.setStructName(sdaEnName);
@@ -43,23 +43,23 @@ public class MappingSheetRowVO {
                 sda.setRemark(sdaRemark);
                 sda.setType(sdaTypeAndLength);
                 sda.setMetadataId(sdaEnName);
-                if(null != sdaParents){
-                    if(sdaParents.size() > 0){
-                        SDA parentSda = sdaParents.get(sdaParents.size() -1);
-                        if(null != parentSda){
+                if (null != sdaParents) {
+                    if (sdaParents.size() > 0) {
+                        SDA parentSda = sdaParents.get(sdaParents.size() - 1);
+                        if (null != parentSda) {
                             sda.setParentId(parentSda.getId());
-                            if(StringUtils.isNotEmpty(parentSda.getXpath()) && StringUtils.isNotEmpty(sdaEnName)){
+                            if (StringUtils.isNotEmpty(parentSda.getXpath()) && StringUtils.isNotEmpty(sdaEnName)) {
                                 String xpath = parentSda.getXpath() + "/" + sdaEnName;
                                 sda.setXpath(xpath);
                             }
                         }
                     }
                 }
-                String idaChName =  ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.idaChNameCol));
-                String idaType =  ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.idaTypeCol));
-                String idaLength =  ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.idaLengthCol));
-                String idaRequired =  ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.idaRequiredCol));
-                String idaRemark =  ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.idaRemarkCol));
+                String idaChName = ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.idaChNameCol));
+                String idaType = ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.idaTypeCol));
+                String idaLength = ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.idaLengthCol));
+                String idaRequired = ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.idaRequiredCol));
+                String idaRemark = ExcelTool.getInstance().getCellContent(row.getCell(sheetIndex.idaRemarkCol));
                 ida = new Ida();
                 ida.setStructName(idaEnName);
                 ida.setStructAlias(idaChName);
@@ -68,23 +68,23 @@ public class MappingSheetRowVO {
                 ida.setRequired(idaRequired);
                 ida.setRemark(idaRemark);
                 ida.setState(Constants.IDA_STATE_COMMON);
-                if(StringUtils.isNotEmpty(sda.getMetadataId())){
+                if (StringUtils.isNotEmpty(sda.getMetadataId())) {
                     ida.setMetadataId(sdaEnName);
                     ida.setSdaId(sda.getId());
                 }
-                if(null != idaParents){
-                    if(idaParents.size() > 0){
-                        Ida parentIda = idaParents.get(idaParents.size() -1);
-                        if(null != parentIda){
+                if (null != idaParents) {
+                    if (idaParents.size() > 0) {
+                        Ida parentIda = idaParents.get(idaParents.size() - 1);
+                        if (null != parentIda) {
                             ida.setParentId(parentIda.getId());
-                            if(StringUtils.isNotEmpty(parentIda.getXpath()) && StringUtils.isNotEmpty(sdaEnName)){
+                            if (StringUtils.isNotEmpty(parentIda.getXpath()) && StringUtils.isNotEmpty(sdaEnName)) {
                                 String xpath = parentIda.getXpath() + "/" + sdaEnName;
                                 ida.setXpath(xpath);
                             }
                         }
                     }
                 }
-                if(null != sda && StringUtils.isNotEmpty(sda.getType()) && sda.getType().toLowerCase().contains("array")) {
+                if (null != sda && StringUtils.isNotEmpty(sda.getType()) && (sda.getType().toLowerCase().contains("array") || sda.getType().toLowerCase().contains("struct"))) {
                     if (StringUtils.isNotEmpty(sda.getRemark()) && sda.getRemark().toLowerCase().startsWith("start")) {//一个新数组加入父节点缓存
                         sdaParents.add(sda);
                         idaParents.add(ida);//sda为数组则对应ida节点一定为数组节点

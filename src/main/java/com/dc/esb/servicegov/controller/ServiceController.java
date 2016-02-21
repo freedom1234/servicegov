@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.sql.BatchUpdateException;
 import java.util.*;
 
@@ -151,7 +152,13 @@ public class ServiceController {
     boolean addServiceCategory(@RequestBody ServiceCategory serviceCategory) {
         OperationLog operationLog = systemLogService.record("服务分类", "添加", "分类名称：" + serviceCategory.getCategoryName());
 
-        serviceCategoryServiceImpl.save(serviceCategory);
+//        serviceCategoryServiceImpl.save(serviceCategory);
+        try {
+            serviceCategoryServiceImpl.insert(serviceCategory);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
 
         systemLogService.updateResult(operationLog);
         return true;
@@ -176,9 +183,9 @@ public class ServiceController {
     @ResponseBody
     boolean deleteServiceCategory(@PathVariable String Id) {
         try {
-            Id = java.net.URLDecoder.decode(Id,"UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            Id = URLDecoder.decode(Id, "UTF-8");
+        } catch (UnsupportedEncodingException var5) {
+            var5.printStackTrace();
         }
         //大类下是否有服务,大类下是否有小类
         List<Service> list = serviceServiceImpl.findBy("categoryId", Id);

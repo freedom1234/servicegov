@@ -79,7 +79,7 @@ public abstract class AbstractPackerParserConfigGenerator implements IPackerPars
 
         String reqContent = composeContent(bodyNodeList, "request");
         String respContent = composeContent(bodyNodeList, "response");
-        //在request中，加 bean、page节点
+        //在request�?，加 bean、page节点
         int i = reqContent.indexOf("pageSize");
         int j = reqContent.indexOf("currentPage");
         if (i > 0 && j > 0) {
@@ -145,7 +145,7 @@ public abstract class AbstractPackerParserConfigGenerator implements IPackerPars
                 sb.append("metadataid=\"" + node.getMetadataId() + "\"");
                 sb.append(" ");
             }
-            // kongxfa modify 2015年12月25日 14:15:50
+            // kongxfa modify 2015�?12�?25�? 14:15:50
 //            String type = node.getType();
 //            if (null != type && !"".equalsIgnoreCase(type.trim())) {
 //                sb.append("type=\"" + node.getType() + "\"");
@@ -190,7 +190,7 @@ public abstract class AbstractPackerParserConfigGenerator implements IPackerPars
                 contentBuilder.append(" ");
                 contentBuilder.append("type=\"array\"");
                 contentBuilder.append(" ");
-                contentBuilder.append("is_struct=\"false\""); //add 2015年12月28日 15:38:06
+                contentBuilder.append("is_struct=\"false\""); //add 2015�?12�?28�? 15:38:06
                 contentBuilder.append(" ");
                 contentBuilder.append("metadataida=\"");
                 contentBuilder.append(node.getMetadataId());

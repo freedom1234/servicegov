@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdoroot package_type="iso8583" >
+	<H1  type="string" length="1"						metadataid="H1" store-mode="hexLen8583"    encoding="GBK"/>  
+	<H2  type="string" length="1"						metadataid="H2" store-mode="hex8583"		encoding="GBK"/>  
+	<H3  type="string" length="4"						metadataid="H3"			encoding="GBK"/>  
+    <H4  type="string" length="11"						metadataid="H4"			encoding="GBK"/>  
+    <H5  type="string" length="11"						metadataid="H5"			encoding="GBK"/>  
+	<H6  type="string" length="3"						metadataid="H6" store-mode="hex8583"	   encoding="GBK"/>  
+    <H7  type="string" length="1"						metadataid="H7" store-mode="hex8583"	   encoding="GBK"/>      
+    <H8  type="string" length="8"						metadataid="H8"		   encoding="GBK"/>  
+    <H9  type="string" length="1"						metadataid="H9" store-mode="hex8583"		encoding="GBK"/>  
+    <H10 type="string" length="5"						metadataid="H10"		encoding="GBK"/> 
+
+	<msgtype type="string" length="4"					                metadataid="msgtype"/>
+	<IB1 metadataid="IB1" type="bitmap" />
+	<IB2 metadataid="IB2" type="bitmap" />
+	<F2   type="string" length="19"   variable_flag="2" metadataid="F2"   field_index="2"   desc=""   encoding="GBK"	/>              
+	<F3   type="string" length="6"                      metadataid="F3"   field_index="3"   desc=""   encoding="GBK"         />     
+	<F4   type="string" length="12"                     metadataid="F4"   field_index="4"   desc=""  encoding="GBK"   expression="hfef:Amount8583TODouble(${/sdoroot/BODY/F4},2)" />     
+	<F5   type="string" length="12"                     metadataid="F5"   field_index="5"   desc=""  encoding="GBK"   expression="hfef:Amount8583TODouble(${/sdoroot/BODY/F5},2)" />     
+	<F6   type="string" length="12"                     metadataid="F6"   field_index="6"   desc=""  encoding="GBK"   expression="hfef:Amount8583TODouble(${/sdoroot/BODY/F6},2)" />        
+	<F7   type="string" length="10"                     metadataid="F7"   field_index="7"   desc=""  encoding="GBK"   />    
+	<F9   type="string" length="8"                      metadataid="F9"   field_index="9"   desc=""  encoding="GBK"   expression="hfef:rate8583TODouble(${/sdoroot/BODY/F9})" />        
+	<F10  type="string" length="8"                      metadataid="F10"  field_index="10"  desc=""  encoding="GBK"   expression="hfef:rate8583TODouble(${/sdoroot/BODY/F10})" />       
+	<F11  type="string" length="6"                      metadataid="F11"  field_index="11"  desc=""   encoding="GBK"  />            
+	<F12  type="string" length="6"                      metadataid="F12"  field_index="12"  desc=""   encoding="GBK"       />       
+	<F13  type="string" length="4"                      metadataid="F13"  field_index="13"  desc=""   encoding="GBK"       />       
+	<F14  type="string" length="4"                      metadataid="F14"  field_index="14"  desc=""   encoding="GBK"         />     
+	<F15  type="string" length="4"                      metadataid="F15"  field_index="15"  desc=""   encoding="GBK"         />     
+	<F16  type="string" length="4"                      metadataid="F16"  field_index="16"  desc=""   encoding="GBK"         />     
+	<F17  type="string" length="4"                      metadataid="F17"  field_index="17"  desc=""   encoding="GBK"         />     
+	<F18  type="string" length="4"                      metadataid="F18"  field_index="18"  desc=""   encoding="GBK"         />     
+	<F19  type="string" length="3"                      metadataid="F19"  field_index="19"  desc=""   encoding="GBK"     />         
+	<F22  type="string" length="3"                      metadataid="F22"  field_index="22"  desc=""   encoding="GBK"   />        
+	<F23  type="string" length="3"                      metadataid="F23"  field_index="23"  desc=""   encoding="GBK"         />     
+	<F25  type="string" length="2"                      metadataid="F25"  field_index="25"  desc=""   encoding="GBK"       />       
+	<F26  type="string" length="2"                      metadataid="F26"  field_index="26"  desc=""   encoding="GBK"      />        
+	<F28  type="string" length="9"                      metadataid="F28"  field_index="28"  desc=""   encoding="GBK"         />     
+	<F32  type="string" length="11"  variable_flag="2"  metadataid="F32"  field_index="32"  desc=""   encoding="GBK"       />       
+	<F33  type="string" length="11"  variable_flag="2"  metadataid="F33"  field_index="33"  desc=""   encoding="GBK"       />       
+	<F35  type="string" length="37"  variable_flag="2"  metadataid="F35"  field_index="35"  desc=""   encoding="GBK"             /> 
+	<F36  type="string" length="104" variable_flag="3"  metadataid="F36"  field_index="36"  desc=""   encoding="GBK"        />      
+	<F37  type="string" length="12"                     metadataid="F37"  field_index="37"  desc=""   encoding="GBK"          />    
+	<F38  type="string" length="6"                      metadataid="F38"  field_index="38"  desc=""   encoding="GBK"         />     
+	<F39  type="string" length="2"                      metadataid="F39"  field_index="39"  desc=""   encoding="GBK"          />    
+	<F41  type="string" length="8"                      metadataid="F41"  field_index="41"  desc=""   encoding="GBK"         />     
+	<F42  type="string" length="15"                     metadataid="F42"  field_index="42"  desc=""   encoding="GBK"             /> 
+	<F43  type="string" length="40"                     metadataid="F43"  field_index="43"  desc=""   encoding="GBK"/> 
+	<F44  type="string" length="25"  variable_flag="2"  metadataid="F44"  field_index="44"  desc=""   encoding="GBK"         />     
+	<F45  type="string" length="79"  variable_flag="2"  metadataid="F45"  field_index="45"  desc=""   encoding="GBK"             /> 
+	<F48  type="string" length="512" variable_flag="3"  metadataid="F48"  field_index="48"  desc=""   encoding="GBK"         />     
+	<F49  type="string" length="3"                      metadataid="F49"  field_index="49"  desc=""   encoding="GBK"      />       
+	<F50  type="string" length="3"                      metadataid="F50"  field_index="50"  desc=""   encoding="GBK"             /> 
+	<F51  type="string" length="3"                      metadataid="F51"  field_index="51"  desc=""   encoding="GBK"            /> 
+	<F52  type="string" length="8"                      metadataid="F52"  field_index="52"  desc=""   encoding="GBK" store-mode="hex8583"       />      
+	<F53  type="string" length="16"                     metadataid="F53"  field_index="53"  desc=""   encoding="GBK"             /> 
+	<F54  type="string" length="40"  variable_flag="3"  metadataid="F54"  field_index="54"  desc=""   encoding="GBK"             /> 
+	<F55  type="string" length="255" variable_flag="3"  metadataid="F55"  field_index="55"  desc=""   encoding="GBK"             /> 
+	<F57  type="string" length="100" variable_flag="3"  metadataid="F57"  field_index="57"  desc=""   encoding="GBK"         />     
+	<F58  type="string" length="100" variable_flag="3"  metadataid="F58"  field_index="58"  desc=""   encoding="GBK"             /> 
+	<F59  type="string" length="600" variable_flag="3"  metadataid="F59"  field_index="59"  desc=""   encoding="GBK"         />     
+	<F60  type="string" length="100" variable_flag="3"  metadataid="F60"  field_index="60"  desc=""   encoding="GBK"             /> 
+	<F61  type="string" length="200" variable_flag="3"  metadataid="F61"  field_index="61"  desc=""   encoding="GBK"             /> 
+	<F62  type="string" length="200" variable_flag="3"  metadataid="F62"  field_index="62"  desc=""   encoding="GBK"         />     
+	<F63  type="string" length="200" variable_flag="3"  metadataid="F63"  field_index="63"  desc=""   encoding="GBK"         />     
+	<F70  type="string" length="3"                      metadataid="F70"  field_index="70"  desc=""   encoding="GBK"             /> 
+	<F90  type="string" length="42"                     metadataid="F90"  field_index="90"  desc=""   encoding="GBK"             /> 
+	<F96  type="string" length="8"                      metadataid="F96"  field_index="96"  desc=""   encoding="GBK" store-mode="hex8583"            /> 
+	<F100 type="string" length="11"  variable_flag="2"  metadataid="F100" field_index="100" desc=""   encoding="GBK"       />       
+	<F102 type="string" length="28"  variable_flag="2"  metadataid="F102" field_index="102" desc=""   encoding="GBK"        />      
+	<F103 type="string" length="28"  variable_flag="2"  metadataid="F103" field_index="103" desc=""   encoding="GBK"        />      
+	<F121 type="string" length="100" variable_flag="3"  metadataid="F121" field_index="121" desc=""   encoding="GBK"             />
+	<F122 type="string" length="100" variable_flag="3"  metadataid="F122" field_index="122" desc=""   encoding="GBK"             /> 
+	<F123 type="string" length="100" variable_flag="3"  metadataid="F123" field_index="123" desc=""   encoding="GBK"             /> 
+	<F128 type="string" length="8"						metadataid="F128" field_index="128" desc=""   encoding="GBK" store-mode="hex8583"            /> 
+</sdoroot>

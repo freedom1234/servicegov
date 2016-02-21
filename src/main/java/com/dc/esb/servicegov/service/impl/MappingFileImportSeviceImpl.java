@@ -563,7 +563,7 @@ public class MappingFileImportSeviceImpl extends AbstractBaseService implements 
                     ida.setState(Constants.IDA_STATE_COMMON);
                     insertIda(ida, idaParents);
                 } else {
-                    // 没有元数据则添加元数据
+//                     没有元数据则添加元数据
 //                    Metadata metadata = new Metadata();
 //                    metadata.setMetadataId(sda.getMetadataId());
 //                    metadata.setChineseName(sda.getStructAlias());
@@ -597,15 +597,15 @@ public class MappingFileImportSeviceImpl extends AbstractBaseService implements 
                     insertIda(ida, idaParents);
                 } else {
                     // 没有元数据则添加元数据
-                    Metadata metadata = new Metadata();
-                    metadata.setMetadataId(sda.getMetadataId());
-                    metadata.setChineseName(sda.getStructAlias());
-                    metadataService.addMetadata(metadata);
+//                    Metadata metadata = new Metadata();
+//                    metadata.setMetadataId(sda.getMetadataId());
+//                    metadata.setChineseName(sda.getStructAlias());
+//                    metadataService.addMetadata(metadata);
+//
+//                    logger.info("index页第" + indexVO.getIndexNum() + "条记录导入时，[" + interfaceId + "]页元数据[" + sda.getMetadataId() + sda.getStructAlias() + "]已新建！");
 
-                    logger.info("index页第" + indexVO.getIndexNum() + "条记录导入时，[" + interfaceId + "]页元数据[" + sda.getMetadataId() + sda.getStructAlias() + "]已新建！");
-
-//                    logMsg("index页第" + indexVO.getIndexNum() + "条记录导入失败，原因：[" + interfaceId +"]页元数据[" + sda.getMetadataId() + "]未定义！");
-//                    return false;
+                    logMsg("index页第" + indexVO.getIndexNum() + "条记录导入失败，原因：[" + interfaceId +"]页元数据[" + sda.getMetadataId() + "]未定义！");
+                    return false;
                 }
             }
         }

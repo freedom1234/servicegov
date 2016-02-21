@@ -17,7 +17,7 @@ public class ProcessTest {
         kbuilder.add(ResourceFactory.newClassPathResource("MyProcess.bpmn"), ResourceType.BPMN2);
         KnowledgeBase kbase = kbuilder.newKnowledgeBase();
         StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
-        ProcessInstance processInstance = ksession.startProcess("com.sample");
-
+//        ProcessInstance processInstance = ksession.startProcess("com.sample");
+        ProcessInstance processInstance = ksession.startProcess("com.dc.esb.servicegov.process.metadata");
     }
 }
